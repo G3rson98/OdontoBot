@@ -1,0 +1,27 @@
+
+DELIMITER  //
+CREATE TRIGGER actualizarStock AFTER UPDATE ON mat_prima
+ FOR EACH ROW BEGIN
+	DECLARE ant_cant_usada integer;
+    DECLARE Sotck integer;
+    DECLARE nuevo integer;
+	SET @ant_mat_pri:=(SELECT cant_usos FROM mat_prima WHERE id_mat = new.id_mat);
+    SET @Sotck:=(SELECT stock FROM mat_prima WHERE id_mat = new.id_mat);
+    SET @nuevo= @ant_mat_pri+new.cant_usos;
+    if @nuevo> @Sotck THEN
+    	WHILE @nuevo<@stock DO
+        SET @nuevo=@nuevo-@stock;
+        SET @stock=@stock-1;
+        END WHILE;
+     END IF;
+    UPDATE mat_prima SET mat_prima.cant_usos = @nuevo,mat_prima.stock=@stock WHERE mat_prima.id_mat =new.id_mat;
+END;//
+
+DELIMITER //
+CREATE TRIGGER actualizar_mat_prima AFTER INSERT ON serv_mat
+ FOR EACH ROW 
+ BEGIN
+	DECLARE ant_cant_usada integer;
+	SET @ant_mat_pri:=(SELECT cant_usos FROM mat_prima WHERE id_mat = new.id_mat_pri);
+    UPDATE mat_prima SET mat_prima.cant_usos = @ant_mat_pri+new.cant_usos_serv WHERE mat_prima.id_mat =new.id_mat_pri;
+END;//

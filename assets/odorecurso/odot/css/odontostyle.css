@@ -1,0 +1,49 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: #ccffe6;
+	font-family: "Verdana";
+}
+.nros{
+	width: 100%;
+	text-align: center;
+	max-width: 990px;
+	margin: auto;
+	display: grid;
+	grid-template-columns:repeat(16,1fr);
+	background-color: #ccffe6;
+}
+
+.contenedorCaras{
+	width: 100%;
+	max-width: 60px;
+	border: 1px solid black;
+	margin: auto;
+	line-height: 50px;
+}
+.contenedorCaras > img{
+	height: 25px;
+	width: 20px;
+	display: block;
+	background: solid white;
+	margin: auto;
+	cursor: pointer;
+/*	box-shadow: 2px 2px 10px rgba(0,0,0,.25);
+	border: 5px solid black;*/
+}
+
+.CXBlanco{
+	height: 50px;
+	width: 50px;
+}
+
+.odont {
+	width: 100%;
+	max-width: 990px;
+	border: 5px solid black;
+	margin: auto;
+	background-color: #e6e6e6;
+}

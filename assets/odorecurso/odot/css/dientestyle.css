@@ -1,0 +1,32 @@
+.contenedorCaras{/*contenedor de caras*/
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr; 
+}
+
+.odont{/*contenedor de dientes*/
+	display: grid;
+	grid-template-columns:repeat(16,1fr);
+	grid-template-rows:  repeat(2,1fr);
+}
+
+.contenedorCaras .CSBlanco{
+	grid-row-start: 1;
+	grid-column: 2/3;
+}
+.contenedorCaras .CDBlanco{
+	grid-row-start: 2;
+	grid-column: 3/3;
+}
+.contenedorCaras .CXBlanco{
+	grid-row-start: 2;
+	grid-column: 2/3;
+}
+.contenedorCaras .CZBlanco{
+	grid-row-start: 2;
+	grid-column: 1/2;
+}
+.contenedorCaras .CIBlanco{
+	grid-row-start: 3;
+	grid-column: 2/3;
+}
